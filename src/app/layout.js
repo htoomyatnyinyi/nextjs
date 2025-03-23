@@ -2,7 +2,7 @@ import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/navbar/Navbar";
 import Footer from "@/components/footer/Footer";
-
+import { GoogleOAuthProvider } from "@react-oauth/google";
 const geistSans = Geist({
   variable: "--font-geist-sans",
   subsets: ["latin"],
@@ -24,11 +24,13 @@ export default function RootLayout({ children }) {
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
-        <div className="bg-white dark:bg-black">
-          <Navbar />
-          {children}
-          <Footer />
-        </div>
+        <GoogleOAuthProvider clientId="420918966550-5grrctb40mudr1ebtatnmgb8ahq87vub.apps.googleusercontent.com">
+          <div className="bg-white dark:bg-black">
+            <Navbar />
+            {children}
+            <Footer />
+          </div>
+        </GoogleOAuthProvider>
       </body>
     </html>
   );
