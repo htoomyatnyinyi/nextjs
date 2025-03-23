@@ -1,8 +1,17 @@
+import Link from "next/link";
+
 const Home = () => {
   return (
-    <div>
-      <h1>This is Home Page</h1>
-      <p>This is a descriptions</p>
+    <div className="min-h-screen flex items-center justify-center">
+      <h1 className="text-3xl">
+        Welcome! Go to{" "}
+        <Link href="/register" className="text-blue-500">
+          Register
+        </Link>
+        <Link href="/login" className="text-blue-500">
+          Login
+        </Link>
+      </h1>
     </div>
   );
 };
